@@ -1,0 +1,152 @@
+@import "fonts/fonts.scss";
+
+@include fontFace(AvenirLight, "./Avenir/Light/AvenirLight");
+@include fontFace(AvenirMedium, "./Avenir/Medium/AvenirMedium");
+@include fontFace(AvenirHeavy, "./Avenir/Heavy/AvenirHeavy");
+@include fontFace(AvenirBlack, "./Avenir/Black/AvenirBlack");
+
+@import "bulma/bulma.sass";
+@import "highlight.js/scss/darcula.scss";
+
+*
+{
+	margin : 0;
+	padding: 0;
+
+}
+
+html, body
+{
+	height: 100%;
+
+}
+
+body
+{
+	font 	 		: normal 24px AvenirLight;
+	color	 		: #000000;
+	margin			: 0 auto;
+	background-color: #ffffff;
+
+}
+
+.Collapsible
+{
+	width: 100%;
+
+	& .Collapsible__trigger
+	{
+		width  : 100%;
+		display: block;
+
+		& .collapsible-header
+		{
+			cursor		   : pointer;
+			display		   : flex;
+			justify-content: space-between;
+
+			& span:last-child
+			{
+				transition-duration: .25s;
+
+			}
+
+		}
+
+		&.is-open
+		{
+			& .collapsible-header
+			{
+				& span:last-child
+				{
+					transform: rotate(180deg);
+
+				}
+
+			}
+
+		}
+
+	}
+
+	& .Collapsible__contentInner
+	{
+		margin-top: 12px;
+
+		& .tabs
+		{
+			margin-top: 16px;
+
+		}
+
+		& .tabs-content
+		{
+			& .tab-content
+			{
+				& .highlight-image
+				{
+					display		   : flex;
+					justify-content: space-between;
+
+					border-radius   : 6px;
+					background-color: whitesmoke;
+
+					& .image
+					{
+						width			   : 45px;
+						margin			   : 0 12px 0 0;
+						background-size    : contain;
+						background-repeat  : no-repeat;
+						background-position: center center;
+
+					}
+
+				}
+
+				&:not(.is-active)
+				{
+					display: none;
+
+				}
+
+			}
+
+		}
+
+	}
+
+	& pre
+	{
+		white-space	 : pre-wrap;
+		border-radius: 6px;
+
+		& .hljs
+		{
+			background: transparent;
+
+		}
+
+	}
+
+}
+
+.verticalSpace
+{
+	width  : 100%;
+	height : 12px;
+	display: block;
+
+	&.h4x
+	{
+		height: 36px;
+
+	}
+
+}
+
+.go-home
+{
+	margin	 : 12px 0 0 0;
+	font-size: 16px;
+
+}
