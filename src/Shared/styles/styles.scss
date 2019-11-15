@@ -1,0 +1,188 @@
+@import "fonts/fonts.scss";
+
+@include fontFace(AvenirLight, "./Avenir/Light/AvenirLight");
+@include fontFace(AvenirMedium, "./Avenir/Medium/AvenirMedium");
+@include fontFace(AvenirHeavy, "./Avenir/Heavy/AvenirHeavy");
+@include fontFace(AvenirBlack, "./Avenir/Black/AvenirBlack");
+
+@import "bulma/bulma.sass";
+
+*
+{
+	margin : 0;
+	padding: 0;
+
+}
+
+html, body
+{
+	height: 100%;
+
+}
+
+body
+{
+	font 	 		: normal 24px AvenirLight;
+	color	 		: #000000;
+	margin			: 0 auto;
+	background-color: #ffffff;
+
+}
+
+.level-item
+{
+	&:nth-child(2)
+	{
+		flex: 2;
+
+	}
+	
+	& .field
+	{
+		width: 100%;
+
+	}
+
+}
+
+.verticalSpace
+{
+	width  : 100%;
+	height : 12px;
+	display: block;
+
+	&.h2x
+	{
+		height: 24px;
+
+	}
+
+	&.h4x
+	{
+		height: 36px;
+
+	}
+
+}
+
+.go-home
+{
+	margin	 : 12px 0 0 0;
+	font-size: 16px;
+
+}
+
+.table
+{
+	margin: 10px auto 0;
+
+	& td
+	{
+		width : 64px;
+		height: 64px;
+
+		&.no-border
+		{
+			border-color: #ffffff;
+
+		}
+
+		&.colorful
+		{
+			background-color: red;
+
+		}
+
+		& .table-cell
+		{
+			height		   : 100%;
+			display		   : flex;
+			align-items	   : center;
+			justify-content: center;
+			
+			& svg[data-icon="exclamation-triangle"]
+			{
+				font-size: 20px;
+
+			}
+
+		}
+
+	}
+
+}
+
+.input-error
+{
+	font	  : normal 12px AvenirLight;
+	color	  : #ff3860;
+	margin	  : -7px 0 0 10px;
+	z-index	  : 9;
+	padding	  : 0 2px;
+	position  : absolute;
+	background: white;
+
+}
+
+.response-error
+{
+	font 			: normal 20px AvenirLight;
+	color			: #ffffff;
+	margin			: 28px 0 0 0;
+	text-align		: center;
+	padding			: 12px;
+	border-radius	: 2px;
+	background-color: #ff3860;
+
+}
+
+.metrics
+{
+	margin: 20px 0;
+
+	.metric
+	{
+		width			: 138px;
+		height			: 76px;
+		border			: 1px dashed #dbdbdb;
+		border-radius	: 6px;
+		background-color: #fff;
+
+		& .metric-item
+		{
+			height		   : 100%;
+			display		   : flex;
+			padding		   : 8px 12px;
+			box-sizing	   : border-box;
+			flex-direction : column;
+			justify-content: flex-end;
+
+			& h1
+			{
+				font : normal 20px AvenirHeavy;
+				color: #292929;
+
+			}
+
+			& h2
+			{
+				font : normal 14px AvenirLight;
+				color: #929292;
+
+			}
+
+		}
+
+	}
+	
+	& .level-item
+	{
+		&:nth-child(2)
+		{
+			flex: 0;
+
+		}
+
+	}
+
+}
