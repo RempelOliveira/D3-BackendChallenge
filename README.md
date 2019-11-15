@@ -1,21 +1,19 @@
-## The challenge
+This is a logic test.
 
-The idea is simple: create a *web crawler* from ground up, using any language you are confortable with.
+Given the following 2d matrix (this is a sample input, you should consider alternative inputs):
 
-## Suggested workflow
+```
+[[1,1,1,1],
+[0,1,1,0],
+[0,1,0,1],
+[0,1,9,1],
+[1,1,1,1]]
+```
 
-This crawler should only navigate in one domain, for example: pointing it to https://elixir-lang.org, it should walk for all pages on the domaing, but it shouldn`t go to Twitter, or the Language Forum.
+Create a virtual robot, that can walk up, right, left and bottom. The robot cannot leave the borders.
 
-Your crawler must print, as a result, a map, with a list of all the pages, and all the static assets (css, js, img) of every page. 
+Find the shortest path to `9`. `1` is a walkable place. `0` is a hole, and you must avoid it.
 
-You can choose how the result is gonna look like.
+Your initial position is `0x0`, the `9` position is `2x3`.
 
-You get extra points for a faster crawler.
-
-Fork this repo and send it back to us with your implementation.
-
-## Bonus
-
-You need to provide instructions on buildin and running your code.
-
-**Have fun building!** 🚀
+Good luck!
