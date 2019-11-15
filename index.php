@@ -58,6 +58,9 @@
 
 		public function getPath($data)
 		{
+			if(!is_array($data["source"]))
+				return ["error" => true, "message" => "Invalid Matrix or Source fields!"];
+
 			$source  = array_reverse($data["source"]);
 			$destiny = $data["destiny"];
 
@@ -65,7 +68,7 @@
 				$data["matrix"];
 
 			if($source[0] > count($this->matrix) - 1 || $source[1] > count($this->matrix[0]) - 1 || $this->matrix[$source[0]][$source[1]] != 1)
-				return false;
+				return ["error" => true, "message" => "Invalid Matrix or Source paths!"];
 
 			$map   = [$source];
 			$queue = [new Node($source[0], $source[1], 0)];
@@ -129,7 +132,7 @@
 
 			}
 
-			return false;
+			return ["error" => true, "message" => "Invalid Matrix or Source paths!"];
 
 		}
 
