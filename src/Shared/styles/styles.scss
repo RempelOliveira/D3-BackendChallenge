@@ -150,3 +150,47 @@ body
 	font-size: 16px;
 
 }
+
+form
+{
+	& .level-item
+	{
+		&:nth-child(2)
+		{
+			flex: 2;
+
+		}
+
+		& .field
+		{
+			width: 100%;
+
+		}
+
+	}
+
+}
+
+.input-error
+{
+	font	  : normal 12px AvenirLight;
+	color	  : #ff3860;
+	margin	  : -7px 0 0 10px;
+	z-index	  : 9;
+	padding	  : 0 2px;
+	position  : absolute;
+	background: white;
+
+}
+
+.response-error
+{
+	font 			: normal 20px AvenirLight;
+	color			: #ffffff;
+	margin			: 28px 0 0 0;
+	text-align		: center;
+	padding			: 12px;
+	border-radius	: 2px;
+	background-color: #ff3860;
+
+}
