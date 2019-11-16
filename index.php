@@ -89,7 +89,7 @@
 						$href = $this->scheme . $href;
 
 					}
-					else if(strpos($href, "http") === false) //else if(substr($href, 0, 1) == "/")
+					else if(strpos($href, "http") === false)
 						$href = $this->domain . (substr($href, 0, 1) != "/" ? "/" : "") . $href;
 
 					array_push($styles, $href);
@@ -120,7 +120,7 @@
 						$src = $this->scheme . $src;
 
 					}
-					else if(strpos($src, "http") === false) //else if(substr($src, 0, 1) == "/")
+					else if(strpos($src, "http") === false)
 						$src = $this->domain . (substr($src, 0, 1) != "/" ? "/" : "") . $src;
 
 				}
@@ -142,7 +142,7 @@
 						$href = $this->scheme . $href;
 
 					}
-					else if(strpos($href, "http") === false) //else if(substr($href, 0, 1) == "/")
+					else if(strpos($href, "http") === false)
 						$href = $this->domain . (substr($href, 0, 1) != "/" ? "/" : "") . $href;
 
 					array_push($images, $href);
@@ -160,7 +160,7 @@
 					$src = $this->scheme . $src;
 
 				}
-				else if(strpos($src, "http") === false) //else if(substr($src, 0, 1) == "/")
+				else if(strpos($src, "http") === false)
 					$src = $this->domain . (substr($src, 0, 1) != "/" ? "/" : "") . $src;
 
 				array_push($images, $src);
