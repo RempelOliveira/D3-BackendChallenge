@@ -1,4 +1,4 @@
-# D3, WebCrawler Challange - Backend
+# D3, WebCrawler Challenge - Backend
 
 Aplicação [WebCrawler](https://en.wikipedia.org/wiki/Web_crawler) desenvolvida em [PHP](https://php.net/), focada no rastreamento de todas urls que fazem parte de um determinado domínio. Conta também com a captação dos assets disponíveis em cada uma das urls rastreadas.
 
@@ -28,4 +28,4 @@ Esta aplicação foi hospedada em uma Cloud Plataform, "*Platform as a Service*"
 
 ** Devido ao **Heroku** manter a aplicação em suspensão, o primeiro acesso pode apresentar demora na resposta do servidor.
 
-[D3 - WebCrawler Challange](https://github.com/d3estudio/backend-challenge/blob/master/README.md)
+[D3 - WebCrawler Challenge](https://github.com/d3estudio/backend-challenge/blob/master/README.md)
