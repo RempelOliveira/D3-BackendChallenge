@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useMemo } from "react";
 
 import axios from "axios";
 import shortid from "shortid";
@@ -115,6 +115,8 @@ function Home()
 				.catch(error =>
 				{
 					setIsLoading(false);
+					setError("Internal error!");
+
 					setMatrix([]);
 
 				});
@@ -200,108 +202,121 @@ function Home()
 
 								}
 								{
-									!items ? "" :
-										<Fragment>
-											<div className="levels metrics">
-												<div className="level-left">
-													<div className="level-item">
-														<div className="metric">
-															<div className="metric-item">
-																<h1>{ items.steps }</h1>
-																<h2>Steps</h2>
-															</div>
-														</div>
-													</div>
-													<div className="level-item">
-														<div className="metric">
-															<div className="metric-item">
-																<h1>{ items.source[0] }x{ items.source[1] }</h1>
-																<h2>Source Position</h2>
-															</div>
-														</div>
-													</div>
-													<div className="level-item">
-														<div className="metric">
-															<div className="metric-item">
-																<h1>{ items.position[1] }x{ items.position[0] }</h1>
-																<h2>Destiny Position</h2>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<table className="table is-bordered">
-												<tbody>
-													{
-														matrix.map((row, x) =>
-														{
-															return (
-																<Fragment key={ shortid.generate() }>
-																	{
-																		x !== 0 ||
-																			<tr>
-																				{
-																					row.map((cell, y) =>
-																					{
-																						return (
-																							<Fragment key={ shortid.generate() }>
-																								{
-																									y !== 0 || <td className="no-border"></td>
-																								}
-																								<td className="no-bordered has-text-white has-background-grey">
-																									<div className="table-cell">
-																										{ y }
-																									</div>
-																								</td>
-																							</Fragment>
-
-																						);
-
-																					})
-
-																				}
-																			</tr>
-																	}
-																	<tr>
-																		<td className="has-text-right has-text-white has-background-grey">
-																			<div className="table-cell">
-																				{ x }
+									useMemo(() =>
+									{
+										return (
+											<Fragment>
+												{
+													!items ? "" :
+														<Fragment>
+															<div className="levels metrics">
+																<div className="level-left">
+																	<div className="level-item">
+																		<div className="metric">
+																			<div className="metric-item">
+																				<h1>{ items.steps }</h1>
+																				<h2>Steps</h2>
 																			</div>
-																		</td>
+																		</div>
+																	</div>
+																	<div className="level-item">
+																		<div className="metric">
+																			<div className="metric-item">
+																				<h1>{ items.source[0] }x{ items.source[1] }</h1>
+																				<h2>Source Position</h2>
+																			</div>
+																		</div>
+																	</div>
+																	<div className="level-item">
+																		<div className="metric">
+																			<div className="metric-item">
+																				<h1>{ items.position[1] }x{ items.position[0] }</h1>
+																				<h2>Destiny Position</h2>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<table className="table is-bordered">
+																<tbody>
+																	{
+																		matrix.map((row, x) =>
 																		{
-																			row.map((cell, y) =>
-																			{
-																				return (
-																					<td key={ shortid.generate() } className={ items.path.map(pos => x === pos[0] && y === pos[1]).includes(true) ? "has-background-warning" : "" }>
-																						<div className="table-cell">
+																			return (
+																				<Fragment key={ shortid.generate() }>
+																					{
+																						x !== 0 ||
+																							<tr>
+																								{
+																									row.map((cell, y) =>
+																									{
+																										return (
+																											<Fragment key={ shortid.generate() }>
+																												{
+																													y !== 0 || <td className="no-border"></td>
+																												}
+																												<td className="no-bordered has-text-white has-background-grey">
+																													<div className="table-cell">
+																														{ y }
+																													</div>
+																												</td>
+																											</Fragment>
+
+																										);
+
+																									})
+
+																								}
+																							</tr>
+																					}
+																					<tr>
+																						<td className="has-text-right has-text-white has-background-grey">
+																							<div className="table-cell">
+																								{ x }
+																							</div>
+																						</td>
+																						{
+																							row.map((cell, y) =>
 																							{
-																								x === items.source[0] && y === items.source[1]
-																									?
-																										<FontAwesomeIcon icon = {["fas", "street-view"]} size="lg" /> 
-																									:
-																										""
-																							}
-																							{ x === items.position[0] && y === items.position[1] ? <FontAwesomeIcon icon = {["fas", "map-marker-alt"]} size="lg" /> : ""}
-																							{ cell === 0 ? <FontAwesomeIcon icon = {["fas", "exclamation-triangle"]} /> : ""}
-																						</div>
-																					</td>
+																								return (
+																									<td key={ shortid.generate() } className={ items.path.map(pos => x === pos[0] && y === pos[1]).includes(true) ? "has-background-warning" : "" }>
+																										<div className="table-cell">
+																											{
+																												x === items.source[0] && y === items.source[1]
+																													?
+																														<FontAwesomeIcon icon = {["fas", "street-view"]} size="lg" /> 
+																													:
+																														""
+																											}
+																											{ x === items.position[0] && y === items.position[1] ? <FontAwesomeIcon icon = {["fas", "map-marker-alt"]} size="lg" /> : ""}
+																											{ cell === 0 ? <FontAwesomeIcon icon = {["fas", "exclamation-triangle"]} /> : ""}
+																										</div>
+																									</td>
 
-																				);
+																								);
 
-																			})
+																							})
 
-																		}
-																	</tr>
-																</Fragment>
+																						}
+																					</tr>
+																				</Fragment>
 
-															);
+																			);
 
-														})
+																		})
 
-													}
-												</tbody>
-											</table>
-										</Fragment>
+																	}
+																</tbody>
+															</table>
+														</Fragment>
+
+												}
+											</Fragment>
+
+										);
+
+									}, [items, matrix])
+
 								}
 							</div>
 						</div>
