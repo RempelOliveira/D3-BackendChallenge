@@ -7,11 +7,8 @@
 
 	class WebCrawler
 	{
-		private $urls    = [];
 		private $htmls   = [];
-		private $visited = [];
 		private $invalid = [];
-		private $i 		 = 0;
 
 		private $domain;
 		private $scheme;
@@ -23,7 +20,7 @@
 
 		}
 
-		public function getHtmls($urls)
+		private function getHtmls($urls)
 		{
 			$htmls	   = [];
 			$curlMulti = curl_multi_init();
@@ -71,7 +68,7 @@
 
 		}
 
-		function getAssets($dom)
+		private function getAssets($dom)
 		{
 			$styles  = [];
 			$scripts = [];
@@ -179,8 +176,10 @@
 
 		public function getMap()
 		{
-			$queue[$this->domain] = 
-				$this->domain;
+			$queue[$this->domain] = $this->domain;
+
+			$visited = [];
+			$invalid = [];
 
 			while(!empty($queue))
 			{
@@ -190,12 +189,12 @@
 				{
 					unset($queue[$url]);
 
-					if(!in_array($url, $this->visited))
+					if(!in_array($url, $visited))
 					{
 						if($html["httpCode"] != 200 || strpos($html["contentType"], "text/html") === false)
 						{
 							array_push(
-								$this->invalid, $url);
+								$invalid, $url);
 
 							continue;
 
@@ -207,7 +206,7 @@
 						@$dom->loadHTML($html["content"]);
 
 						array_push(
-							$this->visited, $url);
+							$visited, $url);
 
 						foreach($dom->getElementsByTagName("a") AS $tag)
 						{
@@ -222,13 +221,13 @@
 								{
 									$href = $this->domain . $href;
 
-									if(!in_array($href, $this->visited))
+									if(!in_array($href, $visited))
 										$queue[$href] = $href;
 
 								}
 								else if(strpos($href, $this->domain) !== false)
 								{
-									if(!in_array($href, $this->visited))
+									if(!in_array($href, $visited))
 										$queue[$href] = $href;
 
 								}
@@ -245,7 +244,7 @@
 
 			foreach($this->htmls AS $url => $html)
 			{
-				if(!in_array($url, $this->invalid))
+				if(!in_array($url, $invalid))
 				{
 					$dom = new domDocument;
 					$dom->preserveWhiteSpace = false;
@@ -270,7 +269,11 @@
 		$webCrawler    = new WebCrawler(trim($_GET["domain"]));
 		$webCrawlerMap = $webCrawler->getMap();
 
-		echo json_encode($webCrawlerMap);
+		echo json_encode
+		(
+			!empty($webCrawlerMap) ? $webCrawlerMap : ["error" => true, "message" => "Invalid domain or internal error!"]
+
+		);
 
 	}
 	else
