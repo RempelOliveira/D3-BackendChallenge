@@ -147,6 +147,12 @@
 
 	}
 	else
-		echo "Access Denied";
+	{
+		$env = parse_ini_file(".env")["REACT_APP_URI"];
+
+		if(strtolower($_SERVER["REQUEST_METHOD"]) == "get")
+			header("Location: " . (!empty($env) ? $env : getenv("REACT_APP_URI")));
+
+	}
 
 ?>
