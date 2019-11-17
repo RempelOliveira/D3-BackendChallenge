@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useMemo } from "react";
 
 import axios from "axios";
-import shortid from "shortid";
 
 import "ladda/dist/ladda.min.css";
 import LaddaButton, { ZOOM_OUT } from "react-ladda";
+
+import shortid from "shortid";
 import CollapsibleArea from "./Components/CollapsibleArea";
 
 import formValidate from "../../Shared/utils/FormValidate";
@@ -97,6 +98,7 @@ function Home()
 				.catch(error =>
 				{
 					setIsLoading(false);
+					setError("Internal error!");
 
 				});
 
@@ -111,7 +113,7 @@ function Home()
 		}
 
 	}
-
+	
 	return (
 		<main>
 			<section id="home">
@@ -161,33 +163,45 @@ function Home()
 
 								}
 								{
-									!items ? "" :
-										<Fragment>
-											<div className="verticalSpace h4x"></div>
-											{
-												Object.keys(items).map(i =>
+									useMemo(() =>
+									{
+										return (
+											<Fragment>
 												{
-													return (
-														<div
-															key 	  = { shortid.generate() }
-															className = "levels"
+													!items ? "" :
+														<Fragment>
+															<div className="verticalSpace h4x"></div>
+															{
+																Object.keys(items).map(i =>
+																{
+																	return (
+																		<div
+																			key 	  = { shortid.generate() }
+																			className = "levels"
 
-														>
-															<div className="level-item">
-																<CollapsibleArea
-																	title   = { i }
-																	content = { items[i] }
-																/>
-															</div>
-															<div className="verticalSpace"></div>
-														</div>
+																		>
+																			<div className="level-item">
+																				<CollapsibleArea
+																					title   = { i }
+																					content = { items[i] }
+																				/>
+																			</div>
+																			<div className="verticalSpace"></div>
+																		</div>
 
-													);
+																	);
 
-												})
+																})
 
-											}
-										</Fragment>
+															}
+														</Fragment>
+												}
+											</Fragment>
+
+										);
+
+									}, [items])
+
 								}
 							</div>
 						</div>
