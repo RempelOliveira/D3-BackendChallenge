@@ -25,3 +25,5 @@ Uma vez que todas as dependências estejam devidamente instaladas e configuradas
 # Demo
 
 Esta aplicação foi hospedada em uma Cloud Plataform, "*Platform as a Service*" **Heroku** e encontra-se disponível em produção através do seguinte link: [WebCrawler App](https://d3-webcrawler-frontend.herokuapp.com).
+
+** Devido ao Heroku manter a aplicação em suspensão, o primeiro acesso pode apresentar demora na resposta do servidor.
