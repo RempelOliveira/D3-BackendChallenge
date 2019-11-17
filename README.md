@@ -20,7 +20,7 @@ Por se tratar de um serviço, é necessário configurar o frontend vinculado a e
 
 # Utilização
 
-Uma vez que todas as dependências estejam devidamente instaladas e configuradas, basta acessar o frontend, caso o acesso.
+Uma vez que todas as dependências estejam devidamente instaladas e configuradas, basta acessar o frontend. Caso o acesso direto a API seja realizado, ocorrerá redirecionado ao frontend.
 
 # Demo
 
