@@ -13,7 +13,7 @@ A forma recomendada para obter uma cópia de trabalho do projeto é clonar o Bra
 Ex:
 
 ```
-	REACT_APP_API_URI = http://localhost/D3/Github/WebCrawler/backend/index.php
+REACT_APP_API_URI = http://localhost/D3/Github/WebCrawler/backend/index.php
 ```
 
 # Utilização
