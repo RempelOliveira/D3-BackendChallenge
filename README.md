@@ -1,6 +1,6 @@
 # D3, WebCrawler Challenge - Backend
 
-Aplicação [WebCrawler](https://en.wikipedia.org/wiki/Web_crawler) desenvolvida em [PHP](https://php.net/), focada no rastreamento de todas urls que fazem parte de um determinado domínio. Conta também com a captação dos assets disponíveis em cada uma das urls rastreadas.
+Aplicação [WebCrawler](https://en.wikipedia.org/wiki/Web_crawler) desenvolvida em [PHP 7.1.3](https://php.net/), focada no rastreamento de todas urls que fazem parte de um determinado domínio. Conta também com a captação dos assets disponíveis em cada uma das urls rastreadas.
 
 # Instalação
 
