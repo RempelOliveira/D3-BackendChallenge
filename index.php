@@ -279,7 +279,7 @@
 	else
 	{
 		if(strtolower($_SERVER["REQUEST_METHOD"]) == "get")
-			header("Location: " . parse_ini_file(".env")["REACT_APP_URI"]);
+			header("Location: " . parse_ini_file(".env")["REACT_APP_URI"] || getenv("REACT_APP_URI"));
 
 	}
 
