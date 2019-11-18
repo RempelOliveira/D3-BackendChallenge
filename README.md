@@ -4,7 +4,7 @@ Aplicação [Caminho Mínimo](https://pt.wikipedia.org/wiki/Problema_do_caminho_
 
 # Instalação
 
-A forma recomendada para obter uma cópia de trabalho do projeto é clonar o Branch [Logic-backend](https://github.com/RempelOliveira/D3-BackendChallenge/tree/Logic-backend), e disponibilizar o serviço através de um servidor web, tal como o [Apache](https://www.apache.org/).
+A forma recomendada para obter uma cópia de trabalho do projeto é clonar o Branch [Logic-backend](https://github.com/RempelOliveira/D3-BackendChallenge/tree/Logic-backend) e disponibilizar o serviço através de um servidor web, tal como o [Apache](https://www.apache.org/).
 
 # Configuração
 
