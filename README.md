@@ -4,7 +4,7 @@ Aplicação [WebCrawler](https://en.wikipedia.org/wiki/Web_crawler) desenvolvida
 
 # Instalação
 
-A forma recomendada para obter uma cópia de trabalho do projeto é clonar o Branch [WebCrawler-backend](https://github.com/RempelOliveira/D3-BackendChallenge/tree/WebCrawler-backend), e disponibilizar o serviço através de um servidor web, tal como o [Apache](https://www.apache.org/).
+A forma recomendada para obter uma cópia de trabalho do projeto é clonar o Branch [WebCrawler-backend](https://github.com/RempelOliveira/D3-BackendChallenge/tree/WebCrawler-backend) e disponibilizar o serviço através de um servidor web, tal como o [Apache](https://www.apache.org/).
 
 # Configuração
 
