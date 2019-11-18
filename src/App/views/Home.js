@@ -115,7 +115,7 @@ function Home()
 				.catch(error =>
 				{
 					setIsLoading(false);
-					setError("Internal error!");
+					setError({message: "Internal error!"});
 
 					setMatrix([]);
 

@@ -1,4 +1,3 @@
-
 # D3, Logic Challenge - Frontend
 
 Aplicação [Caminho Mínimo](https://pt.wikipedia.org/wiki/Problema_do_caminho_m%C3%ADnimo) desenvolvida em [React](https://reactjs.org/), focada na exibição do menor caminho possível dentre as variadas possibilidades dadas em uma matriz multidimensional.
